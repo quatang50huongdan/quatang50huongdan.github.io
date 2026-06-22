@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đăng Ký Tư Vấn</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    :root {
+      --bg-dark:    #0d0d0d;
+      --bg-section: #141414;
+      --gold:       #f5a623;
+      --gold-dark:  #c77d0a;
+      --white:      #ffffff;
+      --gray:       #aaaaaa;
+      --card-bg:    #1c1c1c;
+      --border:     #2e2e2e;
+      --red:        #e03030;
+    }
+ 
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--bg-dark);
+      color: var(--white);
+      min-height: 100vh;
+    }
+ 
+    /* ── LOGO BAR ── */
+    .logo-bar {
+      background: #111;
+      text-align: center;
+      padding: 14px 20px;
+      border-bottom: 2px solid var(--gold);
+    }
+    .logo-bar img {
+      height: 52px;
+      object-fit: contain;
+    }
+    .logo-placeholder {
+      display: inline-block;
+      background: var(--gold);
+      color: #000;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      padding: 8px 24px;
+      border-radius: 4px;
+      letter-spacing: 2px;
+    }
+ 
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, #1a1a1a 0%, #0d0d0d 60%);
+      padding: 48px 20px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -80px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(245,166,35,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 2px;
+      padding: 4px 14px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(26px, 6vw, 46px);
+      line-height: 1.15;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .hero h1 span { color: var(--white); }
+    .hero-sub {
+      font-size: 15px;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+    .hero-highlight {
+      display: inline-block;
+      background: rgba(245,166,35,0.12);
+      border: 1px solid var(--gold);
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 15px;
+      color: var(--white);
+      margin: 14px 0 22px;
+      font-weight: 600;
+    }
+ 
+    /* ── HERO IMAGE SLOT ── */
+    .hero-image {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      min-height: 220px;
+      background: var(--card-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray);
+      font-size: 14px;
+      position: relative;
+    }
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .img-hint {
+      position: absolute;
+      text-align: center;
+      padding: 20px;
+    }
+    .img-hint span {
+      display: block;
+      font-size: 36px;
+      margin-bottom: 8px;
+    }
+ 
+    /* ── BENEFITS ── */
+    .section {
+      padding: 36px 20px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--gold);
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .benefits-grid .benefit-card:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      max-width: 320px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .benefit-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 14px;
+      text-align: center;
+      transition: border-color .25s;
+    }
+    .benefit-card:hover { border-color: var(--gold); }
+    .benefit-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .benefit-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .benefit-card p {
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+ 
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 20px;
+    }
+ 
+    /* ── COURSE BOX ── */
+    .course-box {
+      background: linear-gradient(135deg, #1e1400 0%, #2a1d00 100%);
+      border: 2px solid var(--gold);
+      border-radius: 14px;
+      padding: 24px 20px;
+      margin: 0 20px 28px;
+      text-align: center;
+    }
+    .course-box h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(22px, 5vw, 34px);
+      color: var(--gold);
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .course-box p {
+      font-size: 14px;
+      color: #ccc;
+      line-height: 1.6;
+    }
+ 
+    /* ── EXTRA IMAGE SLOT ── */
+    .extra-image {
+      width: calc(100% - 40px);
+      margin: 0 20px 28px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      min-height: 160px;
+      background: var(--card-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray);
+      font-size: 13px;
+      text-align: center;
+      padding: 20px;
+    }
+    .extra-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+ 
+    /* ── FORM ── */
+    .form-section {
+      background: var(--bg-section);
+      border-top: 3px solid var(--gold);
+      padding: 36px 20px 48px;
+    }
+    .form-section .section-title { margin-bottom: 28px; }
+ 
+    .form-wrapper {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .form-group label .req { color: var(--red); margin-left: 3px; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: #1a1a1a;
+      border: 1.5px solid var(--border);
+      border-radius: 7px;
+      padding: 13px 16px;
+      color: var(--white);
+      font-size: 15px;
+      font-family: 'Open Sans', sans-serif;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+    .form-group select option { background: #1a1a1a; }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+ 
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+ 
+    .submit-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+      color: #000;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 17px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 17px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: opacity .2s, transform .15s;
+    }
+    .submit-btn:hover { opacity: .9; transform: translateY(-1px); }
+    .submit-btn:active { transform: translateY(0); }
+ 
+    .form-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--gray);
+      margin-top: 14px;
+    }
+    .form-note strong { color: var(--gold); }
+ 
+    /* ── SUCCESS MESSAGE ── */
+    .success-msg {
+      display: none;
+      background: rgba(39,174,96,0.1);
+      border: 1.5px solid #27ae60;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .success-msg .check { font-size: 36px; margin-bottom: 10px; }
+    .success-msg h3 { color: #2ecc71; font-family: 'Montserrat', sans-serif; margin-bottom: 6px; }
+    .success-msg p { color: var(--gray); font-size: 14px; }
+ 
+    /* ── FOOTER ── */
+    footer {
+      background: #080808;
+      border-top: 1px solid var(--border);
+      padding: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #555;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+ 
+    @media (max-width: 480px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+ 
+<!-- ════ LOGO ════ -->
+<div class="logo-bar">
+  <!--
+    ĐỂ THÊM LOGO: thay dòng dưới bằng:
+    <img src="logo-cua-ban.png" alt="Logo">
+  -->
+  <div class="logo-placeholder">THƯƠNG HIỆU</div>
+</div>
+ 
+<!-- ════ HERO ════ -->
+<section class="hero">
+  <div class="hero-tag">⭐ Đặc quyền giới hạn</div>
+  <h1>Tiêu đề chính<br/><span>của bạn ở đây</span></h1>
+  <p class="hero-sub">Dòng mô tả ngắn — lợi ích nổi bật nhất cho khách hàng</p>
+  <div class="hero-highlight">
+    ✅ Không phù hợp – Hoàn lại 100% chi phí!
+  </div>
+ 
+  <!-- SLOT ẢNH HERO -->
+  <div class="hero-image">
+    <!--
+      ĐỂ THÊM ẢNH: thay nội dung bên trong bằng:
+      <img src="anh-hero.jpg" alt="Hình ảnh chính">
+    -->
+    <div class="img-hint">
+      <span>🖼️</span>
+      Thêm ảnh chính tại đây<br/>
+      <small>Thay bằng &lt;img src="..."&gt;</small>
+    </div>
+  </div>
+</section>
+ 
+<!-- ════ LỢI ÍCH ════ -->
+<div class="section">
+  <div class="section-title">Sau khi tham gia, bạn sẽ:</div>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <span class="benefit-icon">🚀</span>
+      <h3>Lợi ích 1</h3>
+      <p>Mô tả ngắn về lợi ích này cho khách hàng</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">💰</span>
+      <h3>Lợi ích 2</h3>
+      <p>Mô tả ngắn về lợi ích này cho khách hàng</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">📈</span>
+      <h3>Lợi ích 3</h3>
+      <p>Mô tả ngắn về lợi ích này cho khách hàng</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">🛡️</span>
+      <h3>Lợi ích 4</h3>
+      <p>Mô tả ngắn về lợi ích này cho khách hàng</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">🎯</span>
+      <h3>Lợi ích 5</h3>
+      <p>Mô tả ngắn về lợi ích này cho khách hàng</p>
+    </div>
+  </div>
+</div>
+ 
+<hr class="divider"/>
+ 
+<!-- ════ HỘP KHÓA HỌC / DỰ ÁN ════ -->
+<div style="padding: 28px 0 0;">
+  <div class="course-box">
+    <h2>Tên Khóa Học<br/>/ Chương Trình</h2>
+    <p>Mô tả chi tiết về chương trình, thời lượng, và những gì học viên sẽ nhận được khi đăng ký tham gia.</p>
+  </div>
+</div>
+ 
+<!-- ════ SLOT ẢNH PHỤ ════ -->
+<div class="extra-image">
+  <!--
+    ĐỂ THÊM ẢNH PHỤ: thay nội dung bên trong bằng:
+    <img src="anh-phu.jpg" alt="Hình ảnh phụ">
+  -->
+  🖼️ Ảnh phụ / banner chương trình<br/>
+  <small>Thay bằng &lt;img src="..."&gt;</small>
+</div>
+ 
+<!-- ════ BIỂU MẪU ĐĂNG KÝ ════ -->
+<section class="form-section">
+  <div class="section-title">📋 Đăng Ký Ngay</div>
+ 
+  <div class="form-wrapper">
+    <div class="form-group">
+      <label>Họ và Tên <span class="req">*</span></label>
+      <input type="text" id="name" placeholder="Nguyễn Văn A" required/>
+    </div>
+ 
+    <div class="form-row">
+      <div class="form-group">
+        <label>Số Điện Thoại <span class="req">*</span></label>
+        <input type="tel" id="phone" placeholder="0912 345 678" required/>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="email@gmail.com"/>
+      </div>
+    </div>
+ 
+    <div class="form-group">
+      <label>Tỉnh / Thành Phố <span class="req">*</span></label>
+      <select id="city">
+        <option value="">-- Chọn tỉnh thành --</option>
+        <option>Hà Nội</option>
+        <option>TP. Hồ Chí Minh</option>
+        <option>Đà Nẵng</option>
+        <option>Hải Phòng</option>
+        <option>Cần Thơ</option>
+        <option>Nghệ An</option>
+        <option>Thanh Hóa</option>
+        <option>Bình Dương</option>
+        <option>Đồng Nai</option>
+        <option>Khác</option>
+      </select>
+    </div>
+ 
+    <div class="form-group">
+      <label>Lĩnh Vực / Nghề Nghiệp</label>
+      <select id="field">
+        <option value="">-- Chọn lĩnh vực --</option>
+        <option>Kinh doanh / Buôn bán</option>
+        <option>Marketing / Truyền thông</option>
+        <option>Công nghệ / IT</option>
+        <option>Giáo dục / Đào tạo</option>
+        <option>Y tế / Sức khỏe</option>
+        <option>Tài chính / Kế toán</option>
+        <option>Khác</option>
+      </select>
+    </div>
+ 
+    <div class="form-group">
+      <label>Câu hỏi / Mong muốn của bạn</label>
+      <textarea id="message" placeholder="Nhập nội dung bạn muốn hỏi hoặc mong muốn sau khi tham gia..."></textarea>
+    </div>
+ 
+    <button class="submit-btn" onclick="submitForm()">🔥 Đăng Ký Ngay</button>
+ 
+    <p class="form-note">
+      Bằng cách đăng ký, bạn đồng ý với <a href="#">Chính sách bảo mật</a> của chúng tôi.<br/>
+      <strong>Cam kết không spam – Thông tin được bảo mật 100%</strong>
+    </p>
+ 
+    <div class="success-msg" id="successMsg">
+      <div class="check">✅</div>
+      <h3>Đăng ký thành công!</h3>
+      <p>Chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ. Cảm ơn bạn đã tin tưởng!</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- ════ FOOTER ════ -->
+<footer>
+  <p>© 2025 <a href="#">Tên Thương Hiệu</a> · Hotline: <a href="tel:0912345678">0912 345 678</a></p>
+  <p style="margin-top:6px;"><a href="#">Chính sách bảo mật</a> · <a href="#">Điều khoản sử dụng</a></p>
+</footer>
+ 
+<script>
+  function submitForm() {
+    const name  = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const city  = document.getElementById('city').value;
+ 
+    if (!name)  { alert('Vui lòng nhập họ tên!'); return; }
+    if (!phone) { alert('Vui lòng nhập số điện thoại!'); return; }
+    if (!city)  { alert('Vui lòng chọn tỉnh thành!'); return; }
+ 
+    // Ẩn nút, hiện thông báo thành công
+    document.querySelector('.submit-btn').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+ 
+    // TODO: Gửi dữ liệu lên server hoặc Google Sheet tại đây
+    console.log({ name, phone, city,
+      email:   document.getElementById('email').value,
+      field:   document.getElementById('field').value,
+      message: document.getElementById('message').value
+    });
+  }
+</script>
+ 
+</body>
+</html>
