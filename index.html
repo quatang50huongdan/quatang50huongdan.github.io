@@ -165,13 +165,27 @@
  
     .divider { border: none; border-top: 1px solid var(--border); margin: 0 20px; }
  
+    /* ===== CHỈ SỬA 2 PHẦN NÀY ===== */
     .course-box {
       background: linear-gradient(135deg, #1e1400 0%, #2a1d00 100%);
       border: 2px solid var(--gold);
       border-radius: 14px;
-      padding: 24px 20px;
-      margin: 0 20px 28px;
+      margin: 0 auto 28px;
+      /* Tỉ lệ 1:1 */
+      position: relative;
+      width: min(320px, calc(100% - 40px));
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+    }
+    .course-box-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: 24px 20px;
     }
     .course-box h2 {
       font-family: 'Montserrat', sans-serif;
@@ -185,13 +199,19 @@
     .course-box p { font-size: 14px; color: #ccc; line-height: 1.6; }
  
     .extra-image {
-      width: calc(100% - 40px);
-      margin: 0 20px 28px;
+      /* Tỉ lệ 1:1 */
+      position: relative;
+      width: min(320px, calc(100% - 40px));
+      aspect-ratio: 1 / 1;
+      margin: 0 auto 28px;
       border-radius: 10px;
       overflow: hidden;
       border: 2px solid var(--border);
-      min-height: 160px;
       background: var(--card-bg);
+    }
+    .extra-image-inner {
+      position: absolute;
+      inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -200,7 +220,8 @@
       text-align: center;
       padding: 20px;
     }
-    .extra-image img { width: 100%; height: auto; display: block; }
+    .extra-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    /* ===== KẾT THÚC PHẦN SỬA ===== */
  
     .form-section {
       background: var(--bg-section);
@@ -340,7 +361,7 @@
     </div>
     <div class="benefit-card">
       <span class="benefit-icon">🚀</span>
-      <h3>5.BẠN KHÔNG PHẢI TRẢ HỌC PHÍ BẰNG NHỮNG SAI LẦM</h3></h3>
+      <h3>5.BẠN KHÔNG PHẢI TRẢ HỌC PHÍ BẰNG NHỮNG SAI LẦM</h3>
       <p>Những kinh nghiệm đắt giá của người đi trước đã được tổng hợp sẵn để giúp bạn đi đúng đường ngay từ đầu.</p>
     </div>
   </div>
@@ -350,14 +371,18 @@
  
 <div style="padding: 28px 0 0;">
   <div class="course-box">
-    <h2>Tên Khóa Học<br/>/ Chương Trình</h2>
-    <p>Mô tả chi tiết về chương trình, thời lượng, và những gì học viên sẽ nhận được khi đăng ký tham gia.</p>
+    <div class="course-box-inner">
+      <h2>Tên Khóa Học<br/>/ Chương Trình</h2>
+      <p>Mô tả chi tiết về chương trình, thời lượng, và những gì học viên sẽ nhận được khi đăng ký tham gia.</p>
+    </div>
   </div>
 </div>
  
 <div class="extra-image">
-  🖼️ Ảnh phụ / banner chương trình<br/>
-  <small>Thay bằng &lt;img src="..."&gt;</small>
+  <div class="extra-image-inner">
+    🖼️ Ảnh phụ / banner chương trình<br/>
+    <small>Thay bằng &lt;img src="..."&gt;</small>
+  </div>
 </div>
  
 <section class="form-section">
@@ -470,7 +495,6 @@
     submitBtn.innerText = "ĐANG GỬI...";
     submitBtn.disabled = true;
  
-    // ✅ Tên biến khớp đúng với template EmailJS
     const templateParams = {
       name:    name,
       phone:   phone,
