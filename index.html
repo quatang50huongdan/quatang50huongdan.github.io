@@ -9,11 +9,10 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">
     (function() {
-      // Thay bằng Public Key thực tế từ tài khoản EmailJS của bạn
       emailjs.init("0DlQeLdWBfw_mE1KJ"); 
     })();
   </script>
-
+ 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
  
@@ -36,17 +35,13 @@
       min-height: 100vh;
     }
  
-    /* ── LOGO BAR ── */
     .logo-bar {
       background: #111;
       text-align: center;
       padding: 14px 20px;
       border-bottom: 2px solid var(--gold);
     }
-    .logo-bar img {
-      height: 52px;
-      object-fit: contain;
-    }
+    .logo-bar img { height: 52px; object-fit: contain; }
     .logo-placeholder {
       display: inline-block;
       background: var(--gold);
@@ -59,7 +54,6 @@
       letter-spacing: 2px;
     }
  
-    /* ── HERO ── */
     .hero {
       background: linear-gradient(160deg, #1a1a1a 0%, #0d0d0d 60%);
       padding: 48px 20px 36px;
@@ -98,11 +92,7 @@
       margin-bottom: 12px;
     }
     .hero h1 span { color: var(--white); }
-    .hero-sub {
-      font-size: 15px;
-      color: var(--gray);
-      margin-bottom: 8px;
-    }
+    .hero-sub { font-size: 15px; color: var(--gray); margin-bottom: 8px; }
     .hero-highlight {
       display: inline-block;
       background: rgba(245,166,35,0.12);
@@ -115,7 +105,6 @@
       font-weight: 600;
     }
  
-    /* ── HERO IMAGE SLOT ── */
     .hero-image {
       width: 100%;
       max-width: 480px;
@@ -132,28 +121,11 @@
       font-size: 14px;
       position: relative;
     }
-    .hero-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .img-hint {
-      position: absolute;
-      text-align: center;
-      padding: 20px;
-    }
-    .img-hint span {
-      display: block;
-      font-size: 36px;
-      margin-bottom: 8px;
-    }
+    .hero-image img { width: 100%; height: auto; display: block; }
+    .img-hint { position: absolute; text-align: center; padding: 20px; }
+    .img-hint span { display: block; font-size: 36px; margin-bottom: 8px; }
  
-    /* ── BENEFITS ── */
-    .section {
-      padding: 36px 20px;
-      max-width: 640px;
-      margin: 0 auto;
-    }
+    .section { padding: 36px 20px; max-width: 640px; margin: 0 auto; }
     .section-title {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
@@ -164,11 +136,7 @@
       margin-bottom: 24px;
       letter-spacing: 1px;
     }
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
+    .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .benefits-grid .benefit-card:last-child:nth-child(odd) {
       grid-column: 1 / -1;
       max-width: 320px;
@@ -184,11 +152,7 @@
       transition: border-color .25s;
     }
     .benefit-card:hover { border-color: var(--gold); }
-    .benefit-icon {
-      font-size: 28px;
-      margin-bottom: 10px;
-      display: block;
-    }
+    .benefit-icon { font-size: 28px; margin-bottom: 10px; display: block; }
     .benefit-card h3 {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
@@ -197,20 +161,10 @@
       text-transform: uppercase;
       margin-bottom: 6px;
     }
-    .benefit-card p {
-      font-size: 12px;
-      color: var(--gray);
-      line-height: 1.5;
-    }
+    .benefit-card p { font-size: 12px; color: var(--gray); line-height: 1.5; }
  
-    /* ── DIVIDER ── */
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 0 20px;
-    }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0 20px; }
  
-    /* ── COURSE BOX ── */
     .course-box {
       background: linear-gradient(135deg, #1e1400 0%, #2a1d00 100%);
       border: 2px solid var(--gold);
@@ -228,13 +182,8 @@
       line-height: 1.2;
       margin-bottom: 10px;
     }
-    .course-box p {
-      font-size: 14px;
-      color: #ccc;
-      line-height: 1.6;
-    }
+    .course-box p { font-size: 14px; color: #ccc; line-height: 1.6; }
  
-    /* ── EXTRA IMAGE SLOT ── */
     .extra-image {
       width: calc(100% - 40px);
       margin: 0 20px 28px;
@@ -251,27 +200,16 @@
       text-align: center;
       padding: 20px;
     }
-    .extra-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+    .extra-image img { width: 100%; height: auto; display: block; }
  
-    /* ── FORM ── */
     .form-section {
       background: var(--bg-section);
       border-top: 3px solid var(--gold);
       padding: 36px 20px 48px;
     }
     .form-section .section-title { margin-bottom: 28px; }
- 
-    .form-wrapper {
-      max-width: 520px;
-      margin: 0 auto;
-    }
-    .form-group {
-      margin-bottom: 18px;
-    }
+    .form-wrapper { max-width: 520px; margin: 0 auto; }
+    .form-group { margin-bottom: 18px; }
     .form-group label {
       display: block;
       font-size: 13px;
@@ -298,17 +236,10 @@
     }
     .form-group input:focus,
     .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--gold);
-    }
+    .form-group textarea:focus { border-color: var(--gold); }
     .form-group select option { background: #1a1a1a; }
     .form-group textarea { resize: vertical; min-height: 100px; }
- 
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
  
     .submit-btn {
       display: block;
@@ -330,15 +261,9 @@
     .submit-btn:hover { opacity: .9; transform: translateY(-1px); }
     .submit-btn:active { transform: translateY(0); }
  
-    .form-note {
-      text-align: center;
-      font-size: 12px;
-      color: var(--gray);
-      margin-top: 14px;
-    }
+    .form-note { text-align: center; font-size: 12px; color: var(--gray); margin-top: 14px; }
     .form-note strong { color: var(--gold); }
  
-    /* ── SUCCESS MESSAGE ── */
     .success-msg {
       display: none;
       background: rgba(39,174,96,0.1);
@@ -352,7 +277,6 @@
     .success-msg h3 { color: #2ecc71; font-family: 'Montserrat', sans-serif; margin-bottom: 6px; }
     .success-msg p { color: var(--gray); font-size: 14px; }
  
-    /* ── FOOTER ── */
     footer {
       background: #080808;
       border-top: 1px solid var(--border);
@@ -382,7 +306,6 @@
   <div class="hero-highlight">
     ✅ Không phù hợp – Hoàn lại 100% chi phí!
   </div>
- 
   <div class="hero-image">
     <div class="img-hint">
       <span>🖼️</span>
@@ -439,13 +362,11 @@
  
 <section class="form-section">
   <div class="section-title">📋 Đăng Ký Ngay</div>
- 
   <div class="form-wrapper">
     <div class="form-group">
       <label>Họ và Tên <span class="req">*</span></label>
       <input type="text" id="name" placeholder="Nguyễn Văn A" required/>
     </div>
- 
     <div class="form-row">
       <div class="form-group">
         <label>Số Điện Thoại <span class="req">*</span></label>
@@ -456,7 +377,6 @@
         <input type="email" id="email" placeholder="email@gmail.com"/>
       </div>
     </div>
- 
     <div class="form-group">
       <label>Tỉnh / Thành Phố <span class="req">*</span></label>
       <select id="city">
@@ -473,7 +393,6 @@
         <option>Khác</option>
       </select>
     </div>
- 
     <div class="form-group">
       <label>Lĩnh Vực / Nghề Nghiệp</label>
       <select id="field">
@@ -487,7 +406,6 @@
         <option>Khác</option>
       </select>
     </div>
- 
     <div class="form-group">
       <label>Câu hỏi / Mong muốn của bạn</label>
       <textarea id="message" placeholder="Nhập nội dung bạn muốn hỏi hoặc mong muốn sau khi tham gia..."></textarea>
@@ -523,34 +441,28 @@
     if (!phone) { alert('Vui lòng nhập số điện thoại!'); return; }
     if (!city)  { alert('Vui lòng chọn tỉnh thành!'); return; }
  
-    // Thay đổi trạng thái nút bấm để người dùng nhận biết hệ thống đang xử lý
     const submitBtn = document.querySelector('.submit-btn');
     const originalBtnText = submitBtn.innerText;
     submitBtn.innerText = "ĐANG GỬI...";
     submitBtn.disabled = true;
-
-    // Đóng gói các giá trị ID hiện có thành 1 Object tham số
+ 
+    // ✅ Tên biến khớp đúng với template EmailJS
     const templateParams = {
-      user_name: name,
-      user_phone: phone,
-      user_city: city,
-      user_email: document.getElementById('email').value,
-      user_field: document.getElementById('field').value,
-      user_message: document.getElementById('message').value
+      name:    name,
+      phone:   phone,
+      city:    city,
+      email:   document.getElementById('email').value,
+      field:   document.getElementById('field').value,
+      message: document.getElementById('message').value
     };
-
-    // Cấu hình ID tài khoản EmailJS của bạn vào đây
-    const serviceID = 'service_3a958xh';
+ 
+    const serviceID  = 'service_3a958xh';
     const templateID = 'template_kwd4g7v';
-
-    // Thực hiện lệnh gửi dữ liệu
+ 
     emailjs.send(serviceID, templateID, templateParams)
       .then(function() {
-        // GỬI THÀNH CÔNG: Thực thi đúng logic cũ của bạn
         submitBtn.style.display = 'none';
         document.getElementById('successMsg').style.display = 'block';
-        
-        // Reset sạch dữ liệu cũ trong các ô input sau khi gửi xong
         document.getElementById('name').value = '';
         document.getElementById('phone').value = '';
         document.getElementById('email').value = '';
@@ -558,11 +470,8 @@
         document.getElementById('field').value = '';
         document.getElementById('message').value = '';
       }, function(error) {
-        // GỬI THẤT BẠI
         alert('Có lỗi xảy ra, không thể gửi đăng ký. Vui lòng thử lại!');
         console.log('EmailJS Error:', error);
-        
-        // Trả lại trạng thái nút bấm ban đầu để khách bấm lại
         submitBtn.innerText = originalBtnText;
         submitBtn.disabled = false;
       });
